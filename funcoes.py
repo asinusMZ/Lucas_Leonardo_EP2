@@ -8,8 +8,7 @@ def rolar_dados(quantidade_dados):
         lista_dados.append(valor_dado)
     return lista_dados
 
-def guardar_dado(lista_dados, dado_escolhido):
-    dados_armazenados = []
+def guardar_dado(lista_dados, dados_armazenados, dado_escolhido):
     lista_dados_restantes = []
     for dado in lista_dados:
         if dado == dado_escolhido:
