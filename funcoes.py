@@ -1,0 +1,10 @@
+import random
+
+def rolar_dados(quantidade_dados):
+    lista_dados = []
+    for dado in range(quantidade_dados):
+        valor_dado = random.randint(1,6)
+        lista_dados.append(valor_dado)
+    return lista_dados
+
+        
