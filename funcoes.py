@@ -12,7 +12,7 @@ def guardar_dado(lista_dados, dados_armazenados, dado_escolhido):
     dados_restantes = []
     lista_final_dados = []
     dado = 0
-    while dado < len(lista_dados):
+    while dado < len(lista_dados)-1:
         if dado == dado_escolhido:
             dados_armazenados.append(dado)
         elif dado != dado_escolhido:
