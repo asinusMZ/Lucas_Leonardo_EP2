@@ -12,5 +12,5 @@ def guardar_dado(rolados, guardados, indice):
     guardados.append(rolados[indice])
     rolados.pop(indice)
 
-    return = [rolados, guardados]
+    return [rolados, guardados]
     
