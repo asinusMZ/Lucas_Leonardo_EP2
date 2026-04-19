@@ -31,5 +31,25 @@ def calcula_pontos_regra_simples(rolados):
 
     for dado in rolados:
         if dado == 1:
-            cat1 =+ 1
-        elif dad
+            cat1 += 1
+        elif dado == 2:
+            cat2 += 2
+        elif dado == 3:
+            cat3 += 3
+        elif dado == 4:
+            cat4 += 4
+        elif dado == 5:
+            cat5 += 5
+        elif dado == 6:
+            cat6 += 6
+    
+    calculo = {}
+
+    calculo[1] = cat1
+    calculo[2] = cat2
+    calculo[3] = cat3
+    calculo[4] = cat4
+    calculo[5] = cat5
+    calculo[6] = cat6
+
+    return calculo
