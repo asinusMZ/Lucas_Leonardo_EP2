@@ -53,3 +53,11 @@ def calcula_pontos_regra_simples(rolados):
     calculo[6] = cat6
 
     return calculo
+
+def calcula_pontos_soma(dados):
+    soma = 0
+
+    for dado in dados:
+        soma += dado
+        
+    return soma
