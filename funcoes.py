@@ -69,12 +69,20 @@ def calcula_pontos_sequencia_baixa(dados):
     for dado in dados:
         if dado < min:
             min = dado
+
+    atual = min
     i = 0
+
     while i < len(dados):
+        achou = False
         for dado in dados:
-            if dado == (min + 1):
+            if dado == (atual + 1):
                 contador += 1
-                min = dado
+                atual = dado
+                achou = True
+                break
+        if not achou:
+            break
         i += 1
         
     if contador == 4:
