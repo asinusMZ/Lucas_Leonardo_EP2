@@ -70,7 +70,7 @@ def calcula_pontos_sequencia_baixa(dados):
         if dado < min:
             min = dado
     i = 0
-    while i < len(dados)
+    while i < len(dados):
         for dado in dados:
             if dado == (min + 1):
                 contador += 1
