@@ -85,7 +85,7 @@ def calcula_pontos_sequencia_baixa(dados):
             break
         i += 1
         
-    if contador == 4:
+    if contador >= 4:
         return 15
     else:
         return 0
