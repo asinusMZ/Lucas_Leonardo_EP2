@@ -61,3 +61,36 @@ def calcula_pontos_soma(dados):
         soma += dado
         
     return soma
+
+def calcula_pontos_sequencia_baixa(dados):
+    contador = 1
+    min = 7
+
+    for dado in dados:
+        if dado < min:
+            min = dado
+    
+    for dado in dados:
+        if dado == (min + 1)
+        contador += 1
+
+    for dado in dados:
+        if dado == (min + 1)
+        contador += 1
+
+    for dado in dados:
+        if dado == (min + 1)
+        contador += 1
+
+    for dado in dados:
+        if dado == (min + 1)
+        contador += 1
+
+    for dado in dados:
+        if dado == (min + 1)
+        contador += 1
+
+    if contador == 4:
+        return 15
+    else:
+        return 0
