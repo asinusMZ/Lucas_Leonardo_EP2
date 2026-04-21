@@ -117,3 +117,16 @@ def calcula_pontos_sequencia_alta(dados):
         return 30
     else:
         return 0
+
+def calcula_pontos_full_house(dados):
+    contagem = {}
+
+    for dado in dados:
+        if dado not in contagem:
+            contagem[dado] = 1
+        else:
+            contagem[dado] += 1
+    
+    if 3 in valores and 2 in valores:
+        soma = sum(dados)
+        return soka
