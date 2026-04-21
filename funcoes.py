@@ -128,7 +128,7 @@ def calcula_pontos_full_house(dados):
             contagem[dado] += 1
     
     soma = 0
-    if 3 in valores and 2 in valores:
+    if 3 in contagem.values and 2 in contagem.values:
         for dado in dados:
             soma += dado
         return soma
