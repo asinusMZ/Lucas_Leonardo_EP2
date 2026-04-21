@@ -145,9 +145,11 @@ def calcula_pontos_quadra(dados):
             contagem[dado] += 1
 
     soma = 0
-    if 4 in contagem.values():
-        for dado in dados:
+    numero = 4
+    for quantidade em contagem.values():
+        if quantidade >= 4:
+            for dado in dados:
             soma += dado
-        return soma
-    else:
-        return 0
+            return soma
+        else:
+            return 0
