@@ -132,3 +132,5 @@ def calcula_pontos_full_house(dados):
         for dado in dados:
             soma += dado
         return soma
+    else:
+        return 0
