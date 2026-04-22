@@ -164,4 +164,6 @@ def calcula_pontos_quina(face_dados):
     for quantidade in contagem.values():
         if quantidade == 5:
             return 50
-    return 0
+        else:
+            return 0
+    
