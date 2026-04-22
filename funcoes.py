@@ -153,7 +153,7 @@ def calcula_pontos_quadra(dados):
     return 0
 
 def calcula_pontos_quina(face_dados):
-       contagem = {}
+    contagem = {}
 
     for dado in face_dados:
         if dado not in contagem:
@@ -164,6 +164,5 @@ def calcula_pontos_quina(face_dados):
     for quantidade in contagem.values():
         if quantidade == 5:
             return 50
-        else:
-            return 0
+    return 0
     
