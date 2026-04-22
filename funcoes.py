@@ -151,3 +151,17 @@ def calcula_pontos_quadra(dados):
                 soma += dado
             return soma
     return 0
+
+def calcula_pontos_quina(face_dados):
+       contagem = {}
+
+    for dado in face_dados:
+        if dado not in contagem:
+            contagem[dado] = 1
+        else:
+            contagem[dado] += 1
+
+    for quantidade in contagem.values():
+        if quantidade == 5:
+            return 50
+    return 0
