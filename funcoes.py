@@ -182,10 +182,10 @@ def faz_jogada(dados, categoria, cartela):
         regra_simples = calcula_pontos_regra_simples(dados)
         for numero, valor in regra_simples.items():
             if numero == int(categoria):
-                cartela_atualizada["regras_simples"][numero] = valor
+                cartela_atualizada["regra_simples"][numero] = valor
     else:
         regra_avancada = calcula_pontos_regra_avancada(dados)
         for jogada, valor in regra_avancada.items():
             if jogada == categoria:
-                cartela_atualizada["regras_avancadas"][jogada] = valor
+                cartela_atualizada["regra_avancada"][jogada] = valor
     return cartela_atualizada    
