@@ -166,7 +166,7 @@ def calcula_pontos_quina(face_dados):
             return 50
     return 0
     
-def calcula_ponto_regra_avancada(dados):
+def calcula_pontos_regra_avancada(dados):
     dicionario_regra = {}
     dicionario_regra[cinco_iguais] = calcula_pontos_quina(dados)
     dicionario_regra[full_house] = calcula_pontos_full_house(dados)
