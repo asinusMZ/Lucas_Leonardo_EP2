@@ -166,3 +166,12 @@ def calcula_pontos_quina(face_dados):
             return 50
     return 0
     
+def calcula_ponto_regra_avancada(dados):
+    dicionario_regra = {}
+    dicionario_regra[cinco_iguais] = calcula_pontos_quina(dados)
+    dicionario_regra[full_house] = calcula_pontos_full_house(dados)
+    dicionario_regra[quadra] = calcula_pontos_quadra(dados)
+    dicionario_regra[sem_combinacao] = calcula_pontos_soma(dados)
+    dicionario_regra[sequencia_alta] = calcula_pontos_sequencia_alta(dados)
+    dicionario_regra[sequencia_baixa] = calcula_pontos_sequencia_baixa(dados)
+    return dicionario_regra
