@@ -175,3 +175,17 @@ def calcula_pontos_regra_avancada(dados):
     dicionario_regra["sequencia_alta"] = calcula_pontos_sequencia_alta(dados)
     dicionario_regra["sequencia_baixa"] = calcula_pontos_sequencia_baixa(dados)
     return dicionario_regra
+
+def faz_jogada(dados, categoria, cartela):
+    cartela_atualizada = cartela
+    if categoria in ['1','2','3','4','5','6']:
+        regra_simples = calcula_pontos_regra_simples(dados)
+        for numero, valor in regra_simples.items():
+            if numero == categoria:
+                cartela_atualizada[numero] = valor
+    if categoria in ['full_house','sem_combinacao','quadra','sequencia_baixa','sequencia_alta','cinco_iguais']:
+        regra_avancada = calcula_pontos_regra_avancada(dados)
+        for jogada, valor in regra_avancada.items():
+            if jogada == categoria:
+                cartela_atualizada[jogada] = valor
+    return cartela_atualizada    
