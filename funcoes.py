@@ -181,11 +181,11 @@ def faz_jogada(dados, categoria, cartela):
     if categoria in ['1','2','3','4','5','6']:
         regra_simples = calcula_pontos_regra_simples(dados)
         for numero, valor in regra_simples.items():
-            if numero == categoria:
-                cartela_atualizada[numero] = valor
-    if categoria in ['full_house','sem_combinacao','quadra','sequencia_baixa','sequencia_alta','cinco_iguais']:
+            if numero == int(categoria):
+                cartela_atualizada["regras_simples"][numero] = valor
+    else:
         regra_avancada = calcula_pontos_regra_avancada(dados)
         for jogada, valor in regra_avancada.items():
             if jogada == categoria:
-                cartela_atualizada[jogada] = valor
+                cartela_atualizada["regras_avancadas"][jogada] = valor
     return cartela_atualizada    
