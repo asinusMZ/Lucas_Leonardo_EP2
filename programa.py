@@ -1,6 +1,4 @@
 from funcoes import *
-dados_guardados = []
-
 cartela = {    
     'regra_simples':  {
         1:-1,
@@ -22,14 +20,15 @@ cartela = {
 
 
 for rodada in range(1,13):
+    dados_guardados = []
     dados = rolar_dados(5)
     rolagem = 0
     opcao = -1
 
 
     while opcao != 0:
-        print(f"Dados Rolados: {dados}")
-        print(f"Dados Guardados: {dados_guardados}")
+        print(f"Dados rolados: {dados}")
+        print(f"Dados guardados: {dados_guardados}")
 
         print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
         opcao = int(input(""))
@@ -63,19 +62,38 @@ for rodada in range(1,13):
                     print("Essa combinação já foi utilizada.")
                     opcao = -1
                 else:
-                    faz_jogada(dados, combinacao, cartela)
+                    faz_jogada(dados + dados_guardados, combinacao, cartela)
 
             elif combinacao in cartela["regra_avancada"]:
                 if cartela["regra_avancada"][combinacao] != -1:
                     print("Essa combinação já foi utilizada.")
                     opcao = -1
                 else:
-                    faz_jogada(dados, combinacao, cartela)
+                    faz_jogada(dados + dados_guardados, combinacao, cartela)
 
             else:
                 print("Combinação inválida. Tente novamente.")
                 opcao = -1
-                
+        else:
+            print("Opção inválida. Tente novamente.")
+
+soma_simples = 0
+for valor in cartela["regra_simples"].values():
+    if valor != -1:
+        soma_simples += valor
+
+soma_avancada = 0 
+for valor in cartela["regra_avancada"].values():
+    if valor != -1:
+        soma_avancada += valor       
+
+pontuacao = soma_avancada + soma_simples
+
+if soma_simples >= 63:
+    pontuacao += 35
+
+imprime_cartela(cartela)
+print(f"Pontuação total: {pontuacao}")
             
 
         
