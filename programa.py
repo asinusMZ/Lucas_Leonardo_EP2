@@ -32,16 +32,16 @@ for rodada in range(1,13):
         print(f"Dados Guardados: {dados_guardados}")
 
         print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
-        opcao = int(input())
+        opcao = int(input(""))
 
         if opcao == 1:
             print("Digite o índice do dado a ser guardado (0 a 4):")
-            indice = int(input())
+            indice = int(input(""))
             guardar_dado(dados, dados_guardados, indice)
 
         elif opcao == 2:
             print("Digite o índice do dado a ser removido (0 a 4):")
-            indice = int(input())
+            indice = int(input(""))
             remover_dado(dados, dados_guardados, indice)
 
         elif opcao == 3:
@@ -53,4 +53,7 @@ for rodada in range(1,13):
 
         elif opcao == 4:
             imprime_cartela(cartela)
+        
+        elif opcao == 0:
+            
         
