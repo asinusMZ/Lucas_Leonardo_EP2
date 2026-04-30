@@ -18,6 +18,7 @@ cartela = {
     }
 }
 
+imprime_cartela(cartela)
 
 for rodada in range(1,13):
     dados_guardados = []
@@ -62,14 +63,14 @@ for rodada in range(1,13):
                     print("Essa combinação já foi utilizada.")
                     opcao = -1
                 else:
-                    faz_jogada(dados + dados_guardados, combinacao, cartela)
+                    cartela = faz_jogada(dados + dados_guardados, combinacao, cartela)
 
             elif combinacao in cartela["regra_avancada"]:
                 if cartela["regra_avancada"][combinacao] != -1:
                     print("Essa combinação já foi utilizada.")
                     opcao = -1
                 else:
-                    faz_jogada(dados + dados_guardados, combinacao, cartela)
+                    cartela = faz_jogada(dados + dados_guardados, combinacao, cartela)
 
             else:
                 print("Combinação inválida. Tente novamente.")
