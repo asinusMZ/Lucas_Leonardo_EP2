@@ -24,44 +24,44 @@ for rodada in range(1,13):
     dados_guardados = []
     dados = rolar_dados(5)
     rolagem = 0
-    opcao = -1
+    opcao = ""
 
 
-    while opcao != 0:
+    while opcao != "0":
         print(f"Dados rolados: {dados}")
         print(f"Dados guardados: {dados_guardados}")
 
         print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
         opcao = input()
 
-        if opcao == 1:
+        if opcao == "1":
             print("Digite o índice do dado a ser guardado (0 a 4):")
             indice = int(input(""))
             guardar_dado(dados, dados_guardados, indice)
 
-        elif opcao == 2:
+        elif opcao == "2":
             print("Digite o índice do dado a ser removido (0 a 4):")
             indice = int(input(""))
             remover_dado(dados, dados_guardados, indice)
 
-        elif opcao == 3:
+        elif opcao == "3":
             if rolagem >= 2:
                 print("Você já usou todas as rerrolagens.")
             else:
                 dados = rolar_dados(len(dados))
                 rolagem += 1
 
-        elif opcao == 4:
+        elif opcao == "4":
             imprime_cartela(cartela)
         
-        elif opcao == 0:
+        elif opcao == "0":
             print("Digite a combinação desejada:")
             combinacao = input("")
 
             if combinacao in ['1','2','3','4','5','6']:
                 if cartela['regra_simples'][int(combinacao)] != -1:
                     print("Essa combinação já foi utilizada.")
-                    opcao = -1
+                    opcao = "-1"
                 else:
                     cartela = faz_jogada(dados + dados_guardados, combinacao, cartela)
 
@@ -74,7 +74,7 @@ for rodada in range(1,13):
 
             else:
                 print("Combinação inválida. Tente novamente.")
-                opcao = -1
+                opcao = "-1"
         else:
             print("Opção inválida. Tente novamente.")
 
