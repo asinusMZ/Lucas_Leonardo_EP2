@@ -55,26 +55,27 @@ for rodada in range(1,13):
             imprime_cartela(cartela)
         
         elif opcao == "0":
-            print("Digite a combinação desejada:")
-            combinacao = input("")
+            jogada_feita = False
+            while not jogada_feita:
+                print("Digite a combinação desejada:")
+                combinacao = input()
 
-            if combinacao in ['1','2','3','4','5','6']:
-                if cartela['regra_simples'][int(combinacao)] != -1:
-                    print("Essa combinação já foi utilizada.")
-                    opcao = "-1"
+                if combinacao in ['1','2','3','4','5','6']:
+                    if cartela['regra_simples'][int(combinacao)] != -1:
+                        print("Essa combinação já foi utilizada.")
+                    else:
+                        cartela = faz_jogada(dados + dados_guardados, combinacao, cartela)
+                        jogada_feita = True
+
+                elif combinacao in cartela["regra_avancada"]:
+                    if cartela["regra_avancada"][combinacao] != -1:
+                        print("Essa combinação já foi utilizada.")
+                    else:
+                        cartela = faz_jogada(dados + dados_guardados, combinacao, cartela)
+                        jogada_feita = True
+
                 else:
-                    cartela = faz_jogada(dados + dados_guardados, combinacao, cartela)
-
-            elif combinacao in cartela["regra_avancada"]:
-                if cartela["regra_avancada"][combinacao] != -1:
-                    print("Essa combinação já foi utilizada.")
-                    opcao = -1
-                else:
-                    cartela = faz_jogada(dados + dados_guardados, combinacao, cartela)
-
-            else:
-                print("Combinação inválida. Tente novamente.")
-                opcao = "-1"
+                    print("Combinação inválida. Tente novamente.")
         else:
             print("Opção inválida. Tente novamente.")
 
