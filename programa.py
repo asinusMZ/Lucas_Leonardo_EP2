@@ -1,15 +1,16 @@
 from funcoes import *
+
 cartela = {    
     'regra_simples':  {
-        1:-1,
-        2:-1,
-        3:-1,
-        4:-1,
-        5:-1,
-        6:-1
+        1: -1,
+        2: -1,
+        3: -1,
+        4: -1,
+        5: -1,
+        6: -1
     },
-    'regra_avancada' : {
-        'sem_combinacao':-1,
+    'regra_avancada': {
+        'sem_combinacao': -1,
         'quadra': -1,
         'full_house': -1,
         'sequencia_baixa': -1,
@@ -20,12 +21,11 @@ cartela = {
 
 imprime_cartela(cartela)
 
-for rodada in range(1,13):
+for rodada in range(1, 13):
     dados_guardados = []
     dados = rolar_dados(5)
     rolagem = 0
     opcao = ""
-
 
     while opcao != "0":
         print(f"Dados rolados: {dados}")
@@ -36,13 +36,20 @@ for rodada in range(1,13):
 
         if opcao == "1":
             print("Digite o índice do dado a ser guardado (0 a 4):")
-            indice = int(input(""))
-            guardar_dado(dados, dados_guardados, indice)
+            entrada = input("")
+            # Validação: precisa ser número e índice válido
+            if entrada.isdigit() and int(entrada) < len(dados):
+                indice = int(entrada)
+                guardar_dado(dados, dados_guardados, indice)
+            opcao = "-1"
 
         elif opcao == "2":
             print("Digite o índice do dado a ser removido (0 a 4):")
-            indice = int(input(""))
-            remover_dado(dados, dados_guardados, indice)
+            entrada = input("")
+            if entrada.isdigit() and int(entrada) < len(dados_guardados):
+                indice = int(entrada)
+                remover_dado(dados, dados_guardados, indice)
+            opcao = "-1"
 
         elif opcao == "3":
             if rolagem >= 2:
@@ -50,17 +57,20 @@ for rodada in range(1,13):
             else:
                 dados = rolar_dados(len(dados))
                 rolagem += 1
+            opcao = "-1"
 
         elif opcao == "4":
             imprime_cartela(cartela)
-        
+            opcao = "-1"
+
         elif opcao == "0":
+            # Loop interno: fica pedindo combinação até receber uma válida e não usada
             jogada_feita = False
             while not jogada_feita:
                 print("Digite a combinação desejada:")
-                combinacao = input()
+                combinacao = input("")
 
-                if combinacao in ['1','2','3','4','5','6']:
+                if combinacao in ['1', '2', '3', '4', '5', '6']:
                     if cartela['regra_simples'][int(combinacao)] != -1:
                         print("Essa combinação já foi utilizada.")
                     else:
@@ -76,18 +86,21 @@ for rodada in range(1,13):
 
                 else:
                     print("Combinação inválida. Tente novamente.")
+            # opcao continua "0" -> sai do while externo e vai pra próxima rodada
+
         else:
             print("Opção inválida. Tente novamente.")
 
+# Cálculo da pontuação final
 soma_simples = 0
 for valor in cartela["regra_simples"].values():
     if valor != -1:
         soma_simples += valor
 
-soma_avancada = 0 
+soma_avancada = 0
 for valor in cartela["regra_avancada"].values():
     if valor != -1:
-        soma_avancada += valor       
+        soma_avancada += valor
 
 pontuacao = soma_avancada + soma_simples
 
@@ -96,6 +109,3 @@ if soma_simples >= 63:
 
 imprime_cartela(cartela)
 print(f"Pontuação total: {pontuacao}")
-            
-
-        
