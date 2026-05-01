@@ -37,7 +37,6 @@ for rodada in range(1, 13):
         if opcao == "1":
             print("Digite o índice do dado a ser guardado (0 a 4):")
             entrada = input("")
-            # Validação: precisa ser número e índice válido
             if entrada.isdigit() and int(entrada) < len(dados):
                 indice = int(entrada)
                 guardar_dado(dados, dados_guardados, indice)
@@ -64,7 +63,6 @@ for rodada in range(1, 13):
             opcao = "-1"
 
         elif opcao == "0":
-            # Loop interno: fica pedindo combinação até receber uma válida e não usada
             jogada_feita = False
             while not jogada_feita:
                 print("Digite a combinação desejada:")
@@ -86,12 +84,10 @@ for rodada in range(1, 13):
 
                 else:
                     print("Combinação inválida. Tente novamente.")
-            # opcao continua "0" -> sai do while externo e vai pra próxima rodada
 
         else:
             print("Opção inválida. Tente novamente.")
 
-# Cálculo da pontuação final
 soma_simples = 0
 for valor in cartela["regra_simples"].values():
     if valor != -1:

@@ -62,62 +62,43 @@ def calcula_pontos_soma(dados):
         
     return soma
 
+ 
 def calcula_pontos_sequencia_baixa(dados):
+    unicos = sorted(set(dados))
+ 
     contador = 1
-    min = 7
-
-    for dado in dados:
-        if dado < min:
-            min = dado
-
-    atual = min
-    i = 0
-
-    while i < len(dados):
-        achou = False
-        for dado in dados:
-            if dado == (atual + 1):
-                contador += 1
-                atual = dado
-                achou = True
-                break
-        if not achou:
-            break
-        i += 1
-        
-    if contador >= 4:
+    maior = 1
+    for i in range(1, len(unicos)):
+        if unicos[i] == unicos[i - 1] + 1:
+            contador += 1
+            if contador > maior:
+                maior = contador
+        else:
+            contador = 1
+ 
+    if maior >= 4:
         return 15
     else:
         return 0
-
+ 
 def calcula_pontos_sequencia_alta(dados):
+    unicos = sorted(set(dados))
+ 
     contador = 1
-    min = 7
-
-    for dado in dados:
-        if dado < min:
-            min = dado
-
-    atual = min
-    i = 0
-
-    while i < len(dados):
-        achou = False
-        for dado in dados:
-            if dado == (atual + 1):
-                contador += 1
-                atual = dado
-                achou = True
-                break
-        if not achou:
-            break
-        i += 1
-        
-    if contador >= 5:
+    maior = 1
+    for i in range(1, len(unicos)):
+        if unicos[i] == unicos[i - 1] + 1:
+            contador += 1
+            if contador > maior:
+                maior = contador
+        else:
+            contador = 1
+ 
+    if maior >= 5:
         return 30
     else:
         return 0
-
+ 
 def calcula_pontos_full_house(dados):
     contagem = {}
 
